@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 
 import Nav from "./Nav";
+import MobileNav from "./MobileNav";
 
 const Header: FC = () => {
   return (
@@ -11,7 +12,7 @@ const Header: FC = () => {
         {/* logo */}
         <Link href="/">
           <h1 className="text-4xl font-semibold">
-            Pavel <span className="text-accent">.</span>
+            Pavel<span className="text-accent">.</span>
           </h1>
         </Link>
 
@@ -22,8 +23,11 @@ const Header: FC = () => {
             <Button>Hire me</Button>
           </Link>
         </div>
+
         {/* mobile nav */}
-        <div className="xl:hidden"></div>
+        <div className="xl:hidden">
+          <MobileNav />
+        </div>
       </div>
     </header>
   );

@@ -1,34 +1,14 @@
 "use client";
 
 import { FC } from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const links = [
-  {
-    name: "home",
-    path: "/",
-  },
-  {
-    name: "services",
-    path: "/services",
-  },
-  {
-    name: "resume",
-    path: "/resume",
-  },
-  {
-    name: "work",
-    path: "/work",
-  },
-  {
-    name: "contact",
-    path: "/contact",
-  },
-];
+import { useNavLinks } from "@/hooks/useNavLinks";
+import { INavLink } from "@/types/nav";
+import Link from "next/link";
 
 const Nav: FC = () => {
-  const pathname = usePathname();
+  const pathname: string = usePathname();
+  const links: INavLink[] = useNavLinks();
 
   return (
     <nav className="flex gap-8">
