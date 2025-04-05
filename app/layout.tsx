@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
@@ -21,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={jetbrainsMono.variable}>{children}</body>
+      <body className={jetbrainsMono.variable}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
