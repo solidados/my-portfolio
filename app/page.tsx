@@ -14,7 +14,7 @@ const Home: FC = () => {
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="text-xl text-white/80">Software Developer</span>
             <h1 className="h1 mb-6">
-              Hello, I'm <br />{" "}
+              Hello, I&#39;m <br />{" "}
               <span className="text-accent">Pavel Konyakhin</span>
             </h1>
             {/* TODO: Server – Here should come `About` section*/}
