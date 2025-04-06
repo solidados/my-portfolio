@@ -21,7 +21,7 @@ const Photo: FC = () => {
             opacity: 1,
             transition: { delay: 2.4, duration: 0.4, ease: "easeInOut" },
           }}
-          className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute"
+          className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute left-1.5"
         >
           <Image
             src="/photo1.png"
@@ -54,7 +54,7 @@ const Photo: FC = () => {
               rotate: [120, 360],
             }}
             transition={{
-              duration: 10,
+              duration: 20,
               repeat: Infinity,
               repeatType: "reverse",
             }}
