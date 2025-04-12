@@ -24,7 +24,7 @@ const Photo: FC = () => {
           className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute left-1.5"
         >
           <Image
-            src="/photo1.png"
+            src="/assets/photo.webp"
             className="object-contain"
             priority
             quality={100}
