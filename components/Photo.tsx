@@ -25,7 +25,7 @@ const Photo: FC = () => {
         >
           <Image
             src="/photo1.png"
-            className="object-contain left-1.5!"
+            className="object-contain"
             priority
             quality={100}
             fill
