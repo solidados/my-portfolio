@@ -1,4 +1,4 @@
-import { INavLink } from "@/types/nav";
+import { INavLink } from "@/types/nav.types";
 
 export const useNavLinks = (): INavLink[] => {
   const links: INavLink[] = [

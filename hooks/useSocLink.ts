@@ -1,4 +1,4 @@
-import { ISocLink } from "@/types/nav";
+import { ISocLink } from "@/types/nav.types";
 
 import { FaGithub, FaLinkedinIn, FaFacebook } from "react-icons/fa";
 

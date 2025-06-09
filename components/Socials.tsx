@@ -1,4 +1,4 @@
-import { ISocLink } from "@/types/nav";
+import { ISocLink } from "@/types/nav.types";
 import { FC } from "react";
 import Link from "next/link";
 import { useSocLink } from "@/hooks/useSocLink";

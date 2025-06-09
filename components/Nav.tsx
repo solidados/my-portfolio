@@ -3,7 +3,7 @@
 import { FC } from "react";
 import { usePathname } from "next/navigation";
 import { useNavLinks } from "@/hooks/useNavLinks";
-import { INavLink } from "@/types/nav";
+import { INavLink } from "@/types/nav.types";
 import Link from "next/link";
 
 const Nav: FC = () => {
