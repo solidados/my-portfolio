@@ -28,6 +28,7 @@ import {
 import { motion } from "framer-motion";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { list } from "postcss";
 
 const about: IBaseSection = {
   title: "About me",
@@ -190,7 +191,7 @@ const Resume: FC = () => {
         opacity: 1,
         transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
       }}
-      className="min-h-[80vh] flex justify-center items-center py-12 xl:py-0"
+      className="min-h-[80vh] flex justify-center items-start py-12 xl:py-0"
     >
       <div className="container mx-auto">
         <Tabs
@@ -203,17 +204,19 @@ const Resume: FC = () => {
             <TabsTrigger value="skills">Skills</TabsTrigger>
             <TabsTrigger value="about">About me</TabsTrigger>
           </TabsList>
-          
+
           <div className="min-h-[70vh] w-full">
             <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[2rem] text-center xl:text-left">
                 <div className="flex items-center gap-6">
-                  { experience.icon ? (<Image
-                    src={experience?.icon ?? ""}
-                    alt={education.title}
-                    width={30}
-                    height={30}
-                  />) : null }
+                  {experience.icon ? (
+                    <Image
+                      src={experience?.icon ?? ""}
+                      alt={education.title}
+                      width={30}
+                      height={30}
+                    />
+                  ) : null}
                   <h3 className="text-4xl font-bold">{experience.title}</h3>
                 </div>
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
@@ -244,12 +247,14 @@ const Resume: FC = () => {
             <TabsContent value="education" className="w-full">
               <div className="flex flex-col gap-[2rem] text-center xl:text-left">
                 <div className="flex items-center gap-6">
-                  { education.icon ? (<Image
-                    src={education?.icon ?? ""}
-                    alt={education.title}
-                    width={30}
-                    height={30}
-                  />) : null }
+                  {education.icon ? (
+                    <Image
+                      src={education?.icon ?? ""}
+                      alt={education.title}
+                      width={30}
+                      height={30}
+                    />
+                  ) : null}
                   <h3 className="text-4xl font-bold">{education.title}</h3>
                 </div>
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
@@ -276,13 +281,37 @@ const Resume: FC = () => {
                 </ScrollArea>
               </div>
             </TabsContent>
-            
-            {/*https://youtu.be/dImgZ_AH7uA?si=7CK0F0jd-_AJ45hD&t=7327*/}
-            <TabsContent value="skills" className="w-full">
-              skills
-            </TabsContent>
 
-            <TabsContent value="about" className="w-full">
+            <TabsContent value="skills" className="w-full h-full">
+              <div className="flex flex-col gap-[2rem]">
+                <div className="flex flex-col gap-[2rem] text-center xl:text-left">
+                  <h3 className="text-4xl font-bold">{skills.title}</h3>
+                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                    {skills.description}
+                  </p>
+                </div>
+                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[2rem]">
+                  {skills.items.map((skill, index) => (
+                    <li key={index}>
+                      <TooltipProvider delayDuration={100}>
+                        <Tooltip>
+                          <TooltipTrigger className="w-full h-[150px] flex justify-center items-center group bg-[#232329] rounded-xl">
+                            <div className="text-6xl group-hover:text-accent transition-all duration-300">
+                              {skill.icon}
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p className="capitalize">{skill.name}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </TabsContent>
+            {/*https://youtu.be/dImgZ_AH7uA?si=7CK0F0jd-_AJ45hD&t=7327*/}
+            <TabsContent value="about" className="w-full h-full">
               about
             </TabsContent>
           </div>
