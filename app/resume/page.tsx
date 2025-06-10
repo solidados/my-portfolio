@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { FC } from "react";
 import {
   FaHtml5,
@@ -28,10 +29,10 @@ import {
 import { motion } from "framer-motion";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { list } from "postcss";
 
 const about: IBaseSection = {
-  title: "About me",
+  icon: "/assets/resume/about.svg",
+  title: "About",
   description:
     "Over 3 years of intensive self-directed training, project-based learning, and freelance practice, including my involvement in" +
     " research projects at TUMO Labs and completion of the Rolling Scopes School program. In addition, since July 2024, I have been working as a full-stack developer at `Wingform Inc`, where I contribute to both frontend and backend development. During this time, I completed dozens of real-world projects, mastered modern frontend/backend technologies, and developed a strong architectural mindset. My later entry into the industry has made me exceptionally focused, detail-oriented, and a fast learner, enabling me to quickly adapt to new technologies and challenges.",
@@ -39,37 +40,41 @@ const about: IBaseSection = {
     {
       fieldName: "Name",
       fieldValue: "Pavel Konyakhin",
+      link: "https://linkedin.com/in/solidados",
     },
     {
-      fieldName: "Phone",
-      fieldValue: "(+374) 55 43 47 41",
-    },
-    {
-      fieldName: "Email",
-      fieldValue: "pavel.konyakhin@gmail.com",
+      fieldName: "GitHub",
+      fieldValue: "@solidados",
+      link: "https://github.com/solidados",
     },
     {
       fieldName: "Experience",
       fieldValue: "3+ Years",
     },
+    // {
+    //   fieldName: "Telegram",
+    //   fieldValue: "@solidados",
+    // },
     {
-      fieldName: "Telegram",
-      fieldValue: "@solidados",
-    },
-    {
-      fieldName: "GitHub",
-      fieldValue: "@solidados",
+      fieldName: "Phone",
+      fieldValue: "(+374) 55434741",
+      link: "tel:+37455434741",
     },
     {
       fieldName: "Languages",
       fieldValue: "English, Russian",
     },
+    {
+      fieldName: "Email",
+      fieldValue: "pavel.konyakhin@gmail.com",
+      link: "mailto:pavel.konyakhin@gmail.com",
+    },
   ],
 };
 
 const experience: IExperience = {
-  icon: "/assets/resume/badge.svg",
-  title: "My experience",
+  icon: "/assets/resume/experience.svg",
+  title: "Experience",
   description:
     "Professional developer with experience in both frontend and backend roles. Currently working as a Developer at `Wingform Inc`" +
     " (since July 2024). Previously contributed to projects at TUMO Labs, Web Design Studio and some E-commerce Startup. Strong in" +
@@ -100,7 +105,7 @@ const experience: IExperience = {
 
 const education: IEducation = {
   icon: "/assets/resume/cap.svg",
-  title: "My Education",
+  title: "Education",
   description:
     "Formal education in Logistics, complemented by specialized technical training in web development. Completed multiple programming" +
     " courses and trainings at Rolling Scopes School (Frontend, Node.js, AWS) and TUMO Labs (Frontend" +
@@ -135,7 +140,8 @@ const education: IEducation = {
 };
 
 const skills: ISkills = {
-  title: "My skills",
+  icon: "/assets/resume/skills.svg",
+  title: "Skills",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores eligendi id, minima modi perferendis quo rem tempora" +
     " tempore voluptates. Dignissimos ex quis repellendus soluta.",
@@ -212,14 +218,14 @@ const Resume: FC = () => {
                   {experience.icon ? (
                     <Image
                       src={experience?.icon ?? ""}
-                      alt={education.title}
+                      alt={experience.title}
                       width={30}
                       height={30}
                     />
                   ) : null}
                   <h3 className="text-4xl font-bold">{experience.title}</h3>
                 </div>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                <p className="max-w-full text-white/60 mx-auto xl:mx-0">
                   {experience.description}
                 </p>
                 <ScrollArea className="h-[400px]">
@@ -257,7 +263,7 @@ const Resume: FC = () => {
                   ) : null}
                   <h3 className="text-4xl font-bold">{education.title}</h3>
                 </div>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                <p className="max-w-full text-white/60 mx-auto xl:mx-0">
                   {education.description}
                 </p>
                 <ScrollArea className="h-[400px]">
@@ -285,8 +291,18 @@ const Resume: FC = () => {
             <TabsContent value="skills" className="w-full h-full">
               <div className="flex flex-col gap-[2rem]">
                 <div className="flex flex-col gap-[2rem] text-center xl:text-left">
-                  <h3 className="text-4xl font-bold">{skills.title}</h3>
-                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  <div className="flex items-center gap-6">
+                    {skills.icon ? (
+                      <Image
+                        src={skills?.icon ?? ""}
+                        alt={skills.title}
+                        width={30}
+                        height={30}
+                      />
+                    ) : null}
+                    <h3 className="text-4xl font-bold">{skills.title}</h3>
+                  </div>
+                  <p className="max-w-full text-white/60 mx-auto xl:mx-0">
                     {skills.description}
                   </p>
                 </div>
@@ -311,8 +327,48 @@ const Resume: FC = () => {
               </div>
             </TabsContent>
             {/*https://youtu.be/dImgZ_AH7uA?si=7CK0F0jd-_AJ45hD&t=7327*/}
-            <TabsContent value="about" className="w-full h-full">
-              about
+            <TabsContent
+              value="about"
+              className="w-full text-center xl:text-left"
+            >
+              <div className="flex flex-col gap-[2rem]">
+                <div className="flex items-center gap-6">
+                  {about.icon ? (
+                    <Image
+                      src={about.icon ?? ""}
+                      alt={about.title}
+                      width={30}
+                      height={30}
+                    />
+                  ) : null}
+                  <h3 className="text-4xl font-bold">{about.title}</h3>
+                </div>
+                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  {about.description}
+                </p>
+                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-full mx-auto xl:mx-0">
+                  {about.info.map((item, index) => (
+                    <li
+                      key={index}
+                      className="flex items-center justify-center xl:justify-start gap-4"
+                    >
+                      <span className="text-white/60">{item.fieldName}</span>
+                      {item.link ? (
+                        <Link
+                          className="text-xl hover:text-accent transition-all duration-300"
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {item.fieldValue}
+                        </Link>
+                      ) : (
+                        <span className="text-xl">{item.fieldValue}</span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </TabsContent>
           </div>
         </Tabs>

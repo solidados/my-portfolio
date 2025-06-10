@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 
 export interface IBaseSection {
+  icon: string;
   title: string;
   description: string;
   info: IField[];
@@ -9,6 +10,7 @@ export interface IBaseSection {
 export interface IField {
   fieldName: string;
   fieldValue: string;
+  link?: string;
 }
 
 export interface IExperience {
@@ -38,6 +40,7 @@ export interface IEducationItem {
 }
 
 export interface ISkills {
+  icon: string;
   title: string;
   description: string;
   items: ISkill[];
