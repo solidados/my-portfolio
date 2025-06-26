@@ -74,7 +74,6 @@ const projects: IProject[] = [
   },
 ];
 
-// https://youtu.be/dImgZ_AH7uA?si=5ukCbqF7jGRBUmt3&t=8289
 const Work: FC = () => {
   const [project, setProject] = useState<IProject>(projects[0]);
 
