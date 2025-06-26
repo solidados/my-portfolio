@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { FC } from "react";
+import { FC, useState } from "react";
 
 import { usePathname } from "next/navigation";
 import { useNavLinks } from "@/hooks/useNavLinks";
@@ -15,11 +15,16 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { SheetTitle } from "@/components/ui/sheet";
 
 const MobileNav: FC = () => {
+  const [open, setOpen] = useState<boolean>(false);
   const pathname = usePathname();
   const links: INavLink[] = useNavLinks();
 
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger className="flex justify-center items-center">
         <CiMenuFries className="text-[32px] text-accent" />
       </SheetTrigger>
@@ -29,7 +34,7 @@ const MobileNav: FC = () => {
         </SheetTitle>
         {/* Logo */}
         <div className="mt-28 mb-28 text-center text-2xl">
-          <Link href="/">
+          <Link href="/" onClick={handleClose}>
             <h1 className="text-4xl font-semibold">
               Pavel<span className="text-accent">.</span>
             </h1>
@@ -40,12 +45,13 @@ const MobileNav: FC = () => {
             <Link
               key={index}
               href={link.path}
+              onClick={handleClose}
               className={`${link.path === pathname && "text-accent border-b-2 border-accent"} capitalize text-xl hover:text-accent transition-all`}
             >
               {link.name}
             </Link>
           ))}
-          <Link href="/contact">
+          <Link href="/contact" onClick={handleClose}>
             <Button variant="outline">Hire me</Button>
           </Link>
         </nav>
