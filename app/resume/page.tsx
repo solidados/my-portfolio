@@ -143,8 +143,7 @@ const skills: ISkills = {
   icon: "/assets/resume/skills.svg",
   title: "Skills",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores eligendi id, minima modi perferendis quo rem tempora" +
-    " tempore voluptates. Dignissimos ex quis repellendus soluta.",
+    "Core technologies I work with daily – spanning frontend, backend, infrastructure, and tooling.",
   items: [
     {
       icon: <FaHtml5 />,

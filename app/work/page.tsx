@@ -16,72 +16,16 @@ import {
 } from "@/components/ui/tooltip";
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 import WorkSliderButtons from "@/components/WorkSliderButtons/WorkSliderButtons";
+import { WORK, type IProjectItem, IStackItem } from '@/data/work.data';
 
 import "swiper/css";
 
-type TStack = {
-  name: string;
-};
-
-interface IProject {
-  num: string;
-  category: string;
-  title: string;
-  description: string;
-  stack: TStack[];
-  image: string;
-  live: string;
-  github: string;
-}
-
-const projects: IProject[] = [
-  {
-    num: "01",
-    category: "frontend",
-    title: "project 1",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque error officia reiciendis.",
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
-    image: "/assets/work/thumb1.png",
-    live: "",
-    github: "https://github.com/solidados",
-  },
-  {
-    num: "02",
-    category: "fullstack",
-    title: "project 2",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-    stack: [{ name: "React" }, { name: "Typescript" }, { name: "Node.js" }],
-    image: "/assets/work/thumb2.png",
-    live: "",
-    github: "",
-  },
-  {
-    num: "03",
-    category: "backend",
-    title: "project 3",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, corporis explicabo harum nisi nostrum quaerat quasi reprehenderit sed vero voluptatem. Aliquam cupiditate est facere inventore.",
-    stack: [
-      { name: "Nest.js" },
-      { name: "Prisma" },
-      { name: "typeORM" },
-      { name: "Typescript" },
-    ],
-    image: "/assets/work/thumb3.png",
-    live: "",
-    github: "https://github.com/solidados",
-  },
-];
-
 const Work: FC = () => {
-  const [project, setProject] = useState<IProject>(projects[0]);
+  const [project, setProject] = useState<IProjectItem>(WORK.items[0]);
 
   const handleSlideChange = (swiper: SwiperType) => {
-    // get current slide index
     const currentIndex = swiper.activeIndex;
-    // update project state based on current slide index
-    setProject(projects[currentIndex]);
+    setProject(WORK.items[currentIndex]);
   };
 
   return (
@@ -102,11 +46,11 @@ const Work: FC = () => {
                 {project.num}
               </div>
               <h2 className="text-[2.625rem] leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category} project
+                {project.category.en} project
               </h2>
-              <p className="text-white/60">{project.description}</p>
+              <p className="text-white/60">{project.description.en}</p>
               <ul className="flex gap-4">
-                {project.stack.map((item, index) => (
+                {project.stack.map((item: IStackItem, index: number) => (
                   <li key={index} className="text-xl text-accent">
                     {item.name}
                     {index !== project.stack.length - 1 && ","}
@@ -152,16 +96,16 @@ const Work: FC = () => {
               className="xl:h-[520px] mb-12 relative"
               onSlideChange={handleSlideChange}
             >
-              {projects.map((project, index) => (
+              {WORK.items.map((item: IProjectItem, index) => (
                 <SwiperSlide key={index} className="w-full">
                   <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
                     <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                     <div className="relative w-full h-full">
                       <Image
-                        src={project.image}
+                        src={item.image}
                         fill
                         className="object-cover overflow-hidden"
-                        alt={project.title}
+                        alt={item.title}
                       />
                     </div>
                   </div>
@@ -170,7 +114,7 @@ const Work: FC = () => {
               <WorkSliderButtons
                 containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
                 buttonStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
-                iconStyles={""}
+                iconStyles=""
               />
             </Swiper>
           </div>

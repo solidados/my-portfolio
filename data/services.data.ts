@@ -40,7 +40,7 @@ export const SERVICES: IServicesData = {
     {
       num: '03',
       title: {
-        en: 'Performance & Architecture',
+        en: 'Performance & Arch',
         ru: 'Производительность и архитектура',
       },
       description: {
