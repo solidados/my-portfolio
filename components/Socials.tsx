@@ -1,30 +1,26 @@
-import { ISocLink } from "@/types/nav.types";
 import { FC } from "react";
 import Link from "next/link";
-import { useSocLink } from "@/hooks/useSocLink";
+import { SOCIALS, type ISocialItem } from '@/data/socials.data';
 
 type TSocialsProps = {
   containerStyles?: string;
   iconStyles?: string;
 };
 
-const Socials: FC<TSocialsProps> = (props) => {
-  const { containerStyles, iconStyles } = props;
-  const socials: ISocLink[] = useSocLink();
-
+const Socials: FC<TSocialsProps> = ({ containerStyles, iconStyles }) => {
   return (
     <div className={containerStyles}>
-      {socials.map((item, index) => {
-        const SocIcon = item.icon;
+      {SOCIALS.map((item: ISocialItem) => {
         return (
           <Link
-            key={index}
+            key={item.path}
             href={item.path}
             className={iconStyles}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={item.label}
           >
-            <SocIcon />
+            {item.icon}
           </Link>
         );
       })}

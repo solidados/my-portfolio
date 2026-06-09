@@ -1,27 +1,23 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { FC, useState } from "react";
 
 import { usePathname } from "next/navigation";
-import { useNavLinks } from "@/hooks/useNavLinks";
-import { INavLink } from "@/types/nav.types";
+import { NAV_LINKS, type INavLinkItem } from '@/data/nav.data';
 
 import Link from "next/link";
-import { CiMenuFries } from "react-icons/ci";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 import { SheetTitle } from "@/components/ui/sheet";
+import { CiMenuFries } from "react-icons/ci";
+
 
 const MobileNav: FC = () => {
   const [open, setOpen] = useState<boolean>(false);
   const pathname = usePathname();
-  const links: INavLink[] = useNavLinks();
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleClose = () => setOpen(false);
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -41,14 +37,14 @@ const MobileNav: FC = () => {
           </Link>
         </div>
         <nav className="flex flex-col gap-8 justify-center items-center round">
-          {links.map((link, index) => (
+          {NAV_LINKS.map((link: INavLinkItem) => (
             <Link
-              key={index}
+              key={link.path}
               href={link.path}
               onClick={handleClose}
               className={`${link.path === pathname && "text-accent border-b-2 border-accent"} capitalize text-xl hover:text-accent transition-all`}
             >
-              {link.name}
+              {link.name.en}
             </Link>
           ))}
           <Link href="/contact" onClick={handleClose}>
