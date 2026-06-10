@@ -13,7 +13,7 @@ const Socials: FC<TSocialsProps> = ({ containerStyles, iconStyles }) => {
       {SOCIALS.map((item: ISocialItem) => {
         return (
           <Link
-            key={item.path}
+            key={item.id}
             href={item.path}
             className={iconStyles}
             target="_blank"

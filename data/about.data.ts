@@ -1,6 +1,7 @@
 import type { L10n } from '@/types/i18n.types';
 
 export interface IAboutField {
+  id: string;
   fieldName: L10n;
   fieldValue: string;
   link?: string;
@@ -25,39 +26,47 @@ export const ABOUT: IAboutData = {
   },
   info: [
     {
+      id: 'my_name',
       fieldName: { en: 'Name', ru: 'Имя' },
       fieldValue: 'Pavel Konyakhin',
       link: 'https://linkedin.com/in/solidados',
     },
     {
+      id: 'my_github',
       fieldName: { en: 'GitHub', ru: 'GitHub' },
       fieldValue: '@solidados',
       link: 'https://github.com/solidados',
     },
     {
+      id: 'my_experience',
       fieldName: { en: 'Experience', ru: 'Опыт' },
       fieldValue: '5+ Years',
     },
     {
+      id: 'my_phone',
       fieldName: { en: 'Phone', ru: 'Телефон' },
       fieldValue: '+374 55 434741',
       link: 'tel:+37455434741',
     },
     {
+      id: 'my_email',
       fieldName: { en: 'Email', ru: 'Email' },
       fieldValue: 'pavel.konyakhin@gmail.com',
       link: 'mailto:pavel.konyakhin@gmail.com',
     },
     {
+      id: 'my_location',
       fieldName: { en: 'Location', ru: 'Местоположение' },
       fieldValue: 'Yerevan, Armenia',
     },
     {
+      id: 'my_telegram',
       fieldName: { en: 'Telegram', ru: 'Telegram' },
       fieldValue: '@solidados',
       link: 'https://t.me/solidados',
     },
     {
+      id: 'my_languages',
       fieldName: { en: 'Languages', ru: 'Языки' },
       fieldValue: 'English (B2/C1), Russian (native), Spanish (beginner)',
     },

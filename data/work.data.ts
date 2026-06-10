@@ -26,7 +26,7 @@ export const WORK: IWorkData = {
     {
       num: '01',
       category: { en: 'fullstack', ru: 'fullstack' },
-      title: 'Darb — Riyadh Public Transport',
+      title: 'Darb – Riyadh Public Transport',
       description: {
         en: 'MaaS (Mobility as a Service) web platform for the Riyadh Public Transport system. Complex multimodal UI flows, REST API integration with RTK Query, SSR/SSG with Next.js.',
         ru: 'MaaS-платформа (Mobility as a Service) для системы общественного транспорта Эр-Рияда. Сложные мультимодальные UI-флоу, интеграция REST API через RTK Query, SSR/SSG на Next.js.',
@@ -44,7 +44,7 @@ export const WORK: IWorkData = {
     {
       num: '02',
       category: { en: 'frontend', ru: 'frontend' },
-      title: 'Wingform — Document Editor Platform',
+      title: 'Wingform – Document Editor Platform',
       description: {
         en: 'Editor-driven web application with CKEditor 5 (Track Changes, collaborative comments, role-based access). Custom guided tour system built on Driver.js with dynamic DOM injection.',
         ru: 'Веб-приложение на базе редактора с CKEditor 5 (Track Changes, collaborative-комментарии, ролевой доступ). Кастомная система guided tour на Driver.js с динамической инъекцией DOM-элементов.',

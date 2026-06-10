@@ -1,6 +1,7 @@
 import type { L10n } from '@/types/i18n.types';
 
 export interface IJobItem {
+  id: string;
   duration: string;
   company: string;
   companyUrl?: string;
@@ -28,6 +29,7 @@ export const EXPERIENCE: IExperienceData = {
   },
   items: [
     {
+      id: 'gps_2025',
       duration: '08/2025 – 04/2026',
       company: 'GP Solutions DMCC',
       companyUrl: 'https://gpsolutions.tech',
@@ -42,6 +44,7 @@ export const EXPERIENCE: IExperienceData = {
       },
     },
     {
+      id: 'wingform_2025',
       duration: '07/2024 – 08/2025',
       company: 'Wingform Inc.',
       companyUrl: 'https://wingform.com',
@@ -56,6 +59,7 @@ export const EXPERIENCE: IExperienceData = {
       },
     },
     {
+      id: 'tumo_2022',
       duration: '12/2022 – 07/2024',
       company: 'TumoLabs',
       location: 'Yerevan, Armenia',
@@ -69,6 +73,7 @@ export const EXPERIENCE: IExperienceData = {
       },
     },
     {
+      id: 'verstka_2021',
       duration: '03/2021 – 12/2022',
       company: 'Verstka Agency',
       companyUrl: 'https://verstka.agency',

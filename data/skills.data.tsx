@@ -14,6 +14,7 @@ import {
 import type { L10n } from '@/types/i18n.types';
 
 export interface ISkillItem {
+  id: string;
   icon: JSX.Element;
   name: L10n;
 }
@@ -36,18 +37,18 @@ export const SKILLS: ISkillsData = {
     ru: 'Основные технологии повседневной работы: frontend, backend, инфраструктура и инструменты разработки.',
   },
   items: [
-    { icon: <SiTypescript />, name: { en: 'TypeScript', ru: 'TypeScript' } },
-    { icon: <FaReact />, name: { en: 'React', ru: 'React' } },
-    { icon: <SiNextdotjs />, name: { en: 'Next.js', ru: 'Next.js' } },
-    { icon: <SiRedux />, name: { en: 'Redux Toolkit', ru: 'Redux Toolkit' } },
-    { icon: <SiTailwindcss />, name: { en: 'Tailwind CSS', ru: 'Tailwind CSS' } },
-    { icon: <FaNodeJs />, name: { en: 'Node.js', ru: 'Node.js' } },
-    { icon: <SiNestjs />, name: { en: 'NestJS', ru: 'NestJS' } },
-    { icon: <SiPostgresql />, name: { en: 'PostgreSQL', ru: 'PostgreSQL' } },
-    { icon: <SiPrisma />, name: { en: 'Prisma', ru: 'Prisma' } },
-    { icon: <SiDocker />, name: { en: 'Docker', ru: 'Docker' } },
-    { icon: <FaAws />, name: { en: 'AWS', ru: 'AWS' } },
-    { icon: <FaFigma />, name: { en: 'Figma', ru: 'Figma' } },
-    { icon: <FaGitAlt />, name: { en: 'Git', ru: 'Git' } },
+    { id: 'ts', icon: <SiTypescript />, name: { en: 'TypeScript', ru: 'TypeScript' } },
+    { id: 'react', icon: <FaReact />, name: { en: 'React', ru: 'React' } },
+    { id: 'next', icon: <SiNextdotjs />, name: { en: 'Next.js', ru: 'Next.js' } },
+    { id: 'rtk', icon: <SiRedux />, name: { en: 'Redux Toolkit', ru: 'Redux Toolkit' } },
+    { id: 'twnd', icon: <SiTailwindcss />, name: { en: 'Tailwind CSS', ru: 'Tailwind CSS' } },
+    { id: 'node', icon: <FaNodeJs />, name: { en: 'Node.js', ru: 'Node.js' } },
+    { id: 'nest', icon: <SiNestjs />, name: { en: 'NestJS', ru: 'NestJS' } },
+    { id: 'postgres', icon: <SiPostgresql />, name: { en: 'PostgreSQL', ru: 'PostgreSQL' } },
+    { id: 'prisma', icon: <SiPrisma />, name: { en: 'Prisma', ru: 'Prisma' } },
+    { id: 'docker', icon: <SiDocker />, name: { en: 'Docker', ru: 'Docker' } },
+    { id: 'aws', icon: <FaAws />, name: { en: 'AWS', ru: 'AWS' } },
+    { id: 'figma', icon: <FaFigma />, name: { en: 'Figma', ru: 'Figma' } },
+    { id: 'git', icon: <FaGitAlt />, name: { en: 'Git', ru: 'Git' } },
   ],
 };

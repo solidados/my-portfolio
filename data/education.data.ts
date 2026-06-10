@@ -1,6 +1,7 @@
 import type { L10n } from '@/types/i18n.types';
 
 export interface IEducationItem {
+  id: string;
   duration: string;
   institution: string;
   institutionUrl?: string;
@@ -27,6 +28,7 @@ export const EDUCATION: IEducationData = {
   },
   items: [
     {
+      id: 'rss_2024',
       duration: '2022 – 2024',
       institution: 'Rolling Scopes School',
       institutionUrl: 'https://rs.school',
@@ -40,6 +42,7 @@ export const EDUCATION: IEducationData = {
       },
     },
     {
+      id: 'msa_2008',
       duration: '2005 – 2008',
       institution: 'Moscow State Academy of Water Transport',
       degree: {
@@ -52,6 +55,7 @@ export const EDUCATION: IEducationData = {
       },
     },
     {
+      id: 'msu_2003',
       duration: '2000 – 2003',
       institution: 'Maritime State University named after G.I. Nevelskoi',
       degree: {

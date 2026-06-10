@@ -51,10 +51,10 @@ const Contact: FC = () => {
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Service select</SelectLabel>
-                    <SelectItem value="est">Frontend Development</SelectItem>
-                    <SelectItem value="cst">Full-Stack Development</SelectItem>
-                    <SelectItem value="cst">Performance & Architecture</SelectItem>
-                    <SelectItem value="mst">Backend Development</SelectItem>
+                    <SelectItem value="frontend">Frontend Development</SelectItem>
+                    <SelectItem value="fullstack">Full-Stack Development</SelectItem>
+                    <SelectItem value="performance">Performance & Architecture</SelectItem>
+                    <SelectItem value="backend">Backend Development</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
@@ -70,7 +70,7 @@ const Contact: FC = () => {
           <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
             <ul className="flex flex-col gap-10">
               {CONTACT_INFO.map((item: IContactInfoItem) => (
-                <li key={item.link} className="flex items-center gap-6">
+                <li key={item.id} className="flex items-center gap-6">
                   <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
                     <div>{item.icon}</div>
                   </div>
