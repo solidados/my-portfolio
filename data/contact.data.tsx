@@ -16,7 +16,7 @@ export const CONTACT_INFO: IContactInfoItem[] = [
     id: 'phone',
     icon: <FaPhoneAlt />,
     title: { en: 'Phone', ru: 'Телефон' },
-    value: '+374 55 43 47 41',
+    value: '+374 55 434741',
     link: 'tel:+37455434741',
   },
   {

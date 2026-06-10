@@ -1,23 +1,5 @@
-"use client";
-
 import { FC } from "react";
 import { motion } from "framer-motion";
-
-// type Percentage = `${number}%`;
-//
-// interface IStairAnimation {
-//   variants: {
-//     initial: {
-//       top: Percentage;
-//     };
-//     animate: {
-//       top: Percentage;
-//     };
-//     exit: {
-//       top: Percentage | Percentage[];
-//     };
-//   };
-// }
 
 const stairAnimation = {
   initial: {
