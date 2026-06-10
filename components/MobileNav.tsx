@@ -7,7 +7,7 @@ import { NAV_LINKS, type INavLinkItem } from '@/data/nav.data';
 
 import Link from "next/link";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetDescription, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from "@/components/ui/button";
 import { SheetTitle } from "@/components/ui/sheet";
 import { CiMenuFries } from "react-icons/ci";
@@ -28,6 +28,10 @@ const MobileNav: FC = () => {
         <SheetTitle>
           <VisuallyHidden>Mobile navigation</VisuallyHidden>
         </SheetTitle>
+        <SheetDescription>
+          <VisuallyHidden>Site navigation menu</VisuallyHidden>
+        </SheetDescription>
+        
         {/* Logo */}
         <div className="mt-28 mb-28 text-center text-2xl">
           <Link href="/" onClick={handleClose}>

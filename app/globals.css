@@ -61,6 +61,10 @@
   }
 }
 
+/* Hide reCAPTCHA badge — replaced by inline notice text per Google's policy */
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
 
 @layer utilities {
   .text-balance {
