@@ -29,7 +29,7 @@ export const EXPERIENCE: IExperienceData = {
   },
   items: [
     {
-      id: 'gps_2025',
+      id: 'gps-solutions_2026',
       duration: '08/2025 – 04/2026',
       company: 'GP Solutions DMCC',
       companyUrl: 'https://gpsolutions.tech',
@@ -39,7 +39,7 @@ export const EXPERIENCE: IExperienceData = {
         ru: 'Full-stack разработчик',
       },
       description: {
-        en: 'Developed scalable frontend applications for a MaaS platform — Darb (Riyadh Public Transport system). Led frontend architecture evolution with React, TypeScript, and Next.js (SSR/SSG). Integrated REST APIs via RTK Query, implemented performance optimizations, and applied XSS/CSRF security practices. Participated in Agile sprints and cross-functional collaboration.',
+        en: 'Developed scalable frontend applications for a MaaS platform – Darb (Riyadh Public Transport system). Led frontend architecture evolution with React, TypeScript, and Next.js (SSR/SSG). Integrated REST APIs via RTK Query, implemented performance optimizations, and applied XSS/CSRF security practices. Participated in Agile sprints and cross-functional collaboration.',
         ru: 'Разрабатывал масштабируемые frontend-приложения для MaaS-платформы Darb (транспортная система Эр-Рияда). Руководил развитием frontend-архитектуры на React, TypeScript и Next.js (SSR/SSG). Интегрировал REST API через RTK Query, применял оптимизации производительности и практики безопасности (XSS/CSRF). Участвовал в Agile-спринтах и кросс-функциональном взаимодействии.',
       },
     },
@@ -62,6 +62,7 @@ export const EXPERIENCE: IExperienceData = {
       id: 'tumo_2022',
       duration: '12/2022 – 07/2024',
       company: 'TumoLabs',
+      companyUrl: 'https://tumolabs.am/en/',
       location: 'Yerevan, Armenia',
       position: {
         en: 'Software Developer / Team Lead (R&D)',
@@ -83,8 +84,8 @@ export const EXPERIENCE: IExperienceData = {
         ru: 'Frontend-разработчик',
       },
       description: {
-        en: 'Developed responsive web interfaces with HTML, CSS, JavaScript, and React. Translated Figma mockups into production-ready code across multiple client projects — landing pages and web applications. Focused on cross-browser compatibility, performance, and code maintainability.',
-        ru: 'Разрабатывал адаптивные веб-интерфейсы на HTML, CSS, JavaScript и React. Переводил макеты из Figma в production-ready код для различных клиентских проектов — лендинги и веб-приложения. Фокусировался на кроссбраузерности, производительности и поддерживаемости кода.',
+        en: 'Developed responsive web interfaces with HTML, CSS, JavaScript, and React. Translated Figma mockups into production-ready code across multiple client projects – landing pages and web applications. Focused on cross-browser compatibility, performance, and code maintainability.',
+        ru: 'Разрабатывал адаптивные веб-интерфейсы на HTML, CSS, JavaScript и React. Переводил макеты из Figma в production-ready код для различных клиентских проектов – лендинги и веб-приложения. Фокусировался на кроссбраузерности, производительности и поддерживаемости кода.',
       },
     },
   ],

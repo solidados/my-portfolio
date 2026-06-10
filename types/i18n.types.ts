@@ -1,7 +1,7 @@
 export type Locale = 'en' | 'ru';
 
 /**
- * Localized string — holds translations for all supported locales.
+ * Localized string – holds translations for all supported locales.
  * Usage: field: L10n → { en: 'Hello', ru: 'Привет' }
  *
  * Designed to be easily migrated to next-intl:

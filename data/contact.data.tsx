@@ -38,5 +38,6 @@ export const CONTACT_INFO: IContactInfoItem[] = [
     icon: <FaMapMarkerAlt />,
     title: { en: 'Location', ru: 'Местоположение' },
     value: 'Yerevan, Republic of Armenia',
+    link: 'https://www.google.com/maps/search/?api=1&query=Yerevan,Armenia',
   },
 ];

@@ -19,62 +19,96 @@ export interface IWorkData {
   items: IProjectItem[];
 }
 
-// TODO: Replace placeholder images with real project screenshots in /public/assets/work/
-// TODO: Fill in live URLs and GitHub links once available
 export const WORK: IWorkData = {
   items: [
     {
       num: '01',
       category: { en: 'fullstack', ru: 'fullstack' },
-      title: 'Darb – Riyadh Public Transport',
+      title: 'GP Solutions – Corporate Website',
       description: {
-        en: 'MaaS (Mobility as a Service) web platform for the Riyadh Public Transport system. Complex multimodal UI flows, REST API integration with RTK Query, SSR/SSG with Next.js.',
-        ru: 'MaaS-платформа (Mobility as a Service) для системы общественного транспорта Эр-Рияда. Сложные мультимодальные UI-флоу, интеграция REST API через RTK Query, SSR/SSG на Next.js.',
+        en: 'Built from scratch for a Dubai-based mobility tech company. Next.js frontend, Strapi CMS for content management, and an AI Assistant powered by a custom RAG pipeline with vector embeddings integrated with Grok and OpenAI.',
+        ru: 'Создал с нуля корпоративный сайт дубайской MaaS-компании. Frontend на Next.js, управление контентом через Strapi CMS и AI-ассистент на базе RAG-пайплайна с векторными эмбеддингами, Grok и OpenAI.',
       },
       stack: [
-        { name: 'React' },
-        { name: 'TypeScript' },
         { name: 'Next.js' },
-        { name: 'RTK Query' },
+        { name: 'TypeScript' },
+        { name: 'Strapi' },
+        { name: 'OpenAI' },
       ],
-      image: '/assets/work/thumb1.png',
-      live: 'https://riyadhmetrosa.com',
+      image: '/assets/work/gpsolutions.png',
+      live: 'https://gpsolutions.tech',
       github: '',
     },
     {
       num: '02',
-      category: { en: 'frontend', ru: 'frontend' },
-      title: 'Wingform – Document Editor Platform',
+      category: { en: 'backend', ru: 'backend' },
+      title: 'Movnex – Transit Maps Tbilisi',
       description: {
-        en: 'Editor-driven web application with CKEditor 5 (Track Changes, collaborative comments, role-based access). Custom guided tour system built on Driver.js with dynamic DOM injection.',
-        ru: 'Веб-приложение на базе редактора с CKEditor 5 (Track Changes, collaborative-комментарии, ролевой доступ). Кастомная система guided tour на Driver.js с динамической инъекцией DOM-элементов.',
+        en: 'Backend data infrastructure for a MaaS transit app serving Tbilisi. Built Node.js parsers for collecting and validating city POI data, scraping public event sources, and aggregating geographic elevation data.',
+        ru: 'Бэкенд-инфраструктура для MaaS-приложения транспорта Тбилиси. Разработал Node.js-парсеры для сбора и валидации городских POI, скрапинга публичных событий и агрегации данных географических высот.',
       },
       stack: [
-        { name: 'React' },
+        { name: 'Node.js' },
         { name: 'TypeScript' },
-        { name: 'CKEditor 5' },
-        { name: 'Feature-Sliced Design' },
       ],
-      image: '/assets/work/thumb2.png',
-      live: 'https://wingform.com',
+      image: '/assets/work/movnex.png',
+      live: 'https://apps.apple.com/us/app/movnex-transit-maps-tbilisi/id6760010439',
       github: '',
     },
     {
       num: '03',
-      category: { en: 'fullstack', ru: 'fullstack' },
-      title: 'RightAid — Legal Assistance Platform',
+      category: { en: 'frontend', ru: 'frontend' },
+      title: 'Darb – Riyadh Public Transport',
       description: {
-        en: 'Legal assistance platform for human rights protection, developed for the Czech Diplomatic Mission in Armenia. User-facing features, API integrations, and UX/UI design collaboration.',
-        ru: 'Платформа юридической помощи для защиты прав человека, разработанная для Чешской дипломатической миссии в Армении. Пользовательские функции, API-интеграции и совместная работа над UX/UI.',
+        en: 'MaaS web platform for Riyadh\'s public transport – multimodal journey planning, real-time route data, and transit maps. SSR/SSG with Next.js, REST API via RTK Query, responsive Tailwind UI.',
+        ru: 'MaaS-платформа для общественного транспорта Эр-Рияда – мультимодальное планирование маршрутов, данные в реальном времени и карты транспорта. SSR/SSG на Next.js, REST API через RTK Query, Tailwind UI.',
       },
       stack: [
         { name: 'Next.js' },
         { name: 'TypeScript' },
-        { name: 'Node.js' },
+        { name: 'Tailwind' },
+        { name: 'RTK Query' },
       ],
-      image: '/assets/work/thumb3.png',
-      live: '',
-      github: 'https://github.com/solidados',
+      image: '/assets/work/darb.png',
+      live: 'https://www.rpt.sa',
+      github: '',
+    },
+    {
+      num: '04',
+      category: { en: 'frontend', ru: 'frontend' },
+      title: 'Wingform – Aircraft Deal Platform',
+      description: {
+        en: 'Private aircraft transaction platform for brokers, buyers, and sellers. Collaborative document editing with CKEditor 5 (Track Changes, comments, role-based access) and a custom guided tour system on Driver.js.',
+        ru: 'Платформа для сделок по купле-продаже частных самолётов. Совместное редактирование документов через CKEditor 5 (Track Changes, комментарии, ролевой доступ) и кастомный guided tour на Driver.js.',
+      },
+      stack: [
+        { name: 'Next.js' },
+        { name: 'TypeScript' },
+        { name: 'RTK Query' },
+        { name: 'CKEditor 5' },
+      ],
+      image: '/assets/work/wingform.png',
+      live: 'https://wingform.com',
+      github: '',
+    },
+    {
+      num: '05',
+      category: { en: 'fullstack', ru: 'fullstack' },
+      title: 'MusicFlow – Music Streaming Service',
+      description: {
+        en: 'Full-stack Spotify-like streaming platform. Angular 21 frontend with PrimeNG, global audio player, playlists, and file uploads. NestJS backend with Supabase, JWT auth, and Jamendo API integration (500k+ licensed tracks).',
+        ru: 'Full-stack платформа для стриминга музыки (аналог Spotify). Angular 21 + PrimeNG, глобальный аудиоплеер, плейлисты и загрузка файлов. NestJS + Supabase, JWT-авторизация и Jamendo API (500k+ лицензированных треков).',
+      },
+      stack: [
+        { name: 'Angular' },
+        { name: 'NestJS' },
+        { name: 'TypeScript' },
+        { name: 'Supabase' },
+        { name: 'CI/CD' },
+      ],
+      image: '/assets/work/musicflow.png',
+      live: 'https://angular2026q2.github.io/musicflow/',
+      github: '',
     },
   ],
 };

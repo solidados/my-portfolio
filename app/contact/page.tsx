@@ -35,7 +35,7 @@ const Contact: FC = () => {
                 Let&apos;s work together
               </h3>
               <p className="text-white/60 select-none">
-                Have a project in mind or just want to say hi? – Fill in the form
+                Have a project in mind or interested to hire me? – Fill in the form
                 and I&apos;ll get back to you as soon as possible.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -71,9 +71,22 @@ const Contact: FC = () => {
             <ul className="flex flex-col gap-10">
               {CONTACT_INFO.map((item: IContactInfoItem) => (
                 <li key={item.id} className="flex items-center gap-6">
-                  <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
-                    <div>{item.icon}</div>
-                  </div>
+                  {item.link ? (
+                    <a
+                      href={item.link}
+                      {...(item.link.startsWith('https') && {
+                        target: '_blank',
+                        rel: 'noopener noreferrer',
+                      })}
+                      className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-300"
+                    >
+                      <div className="text-2xl xl:text-3xl">{item.icon}</div>
+                    </a>
+                  ) : (
+                    <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
+                      <div className="text-2xl xl:text-3xl">{item.icon}</div>
+                    </div>
+                  )}
                   <div className="flex-1">
                     <h3 className="text-white/60 select-none">{item.title.en}</h3>
                     <p className="text-[1.1rem]">{item.value}</p>

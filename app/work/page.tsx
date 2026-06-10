@@ -98,13 +98,13 @@ const Work: FC = () => {
             >
               {WORK.items.map((item: IProjectItem) => (
                 <SwiperSlide key={item.num} className="w-full">
-                  <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
-                    <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
+                  <div className="h-[460px] relative group flex justify-center items-center bg-[#1c1c22]">
                     <div className="relative w-full h-full">
                       <Image
                         src={item.image}
                         fill
-                        className="object-cover overflow-hidden"
+                        sizes="(max-width: 1280px) 100vw, 50vw"
+                        className="object-contain"
                         alt={item.title}
                       />
                     </div>

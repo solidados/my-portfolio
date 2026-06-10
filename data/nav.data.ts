@@ -5,7 +5,6 @@ export interface INavLinkItem {
   path: string;
 }
 
-// Replaces hooks/useNavLinks.ts — static data doesn't need to be a hook
 export const NAV_LINKS: INavLinkItem[] = [
   { name: { en: 'home', ru: 'главная' }, path: '/' },
   { name: { en: 'services', ru: 'услуги' }, path: '/services' },
