@@ -1,7 +1,11 @@
 "use client";
 
+import { useState } from 'react';
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+import ExperienceModal from "@/components/ExperienceModal";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Tooltip,
@@ -10,7 +14,6 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { motion } from "framer-motion";
 
 import { ABOUT, type IAboutField } from "@/data/about.data";
 import { EXPERIENCE, type IJobItem } from "@/data/experience.data";
@@ -18,6 +21,7 @@ import { EDUCATION, type IEducationItem } from "@/data/education.data";
 import { SKILLS, type ISkillItem } from "@/data/skills.data";
 
 const Resume = () => {
+  const [ selectedJob, setSelectedJob ] = useState<IJobItem | null>(null);
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -45,7 +49,7 @@ const Resume = () => {
               <div className="flex flex-col gap-[2rem] text-center xl:text-left">
                 <div className="flex items-center gap-6">
                   {EXPERIENCE.icon && (
-                    <Image src={EXPERIENCE.icon} alt={EXPERIENCE.title.en} width={30} height={30} />
+                    <Image src={EXPERIENCE.icon} alt={EXPERIENCE.title.en} width={30} height={30} style={{ height: 'auto' }} />
                   )}
                   <h3 className="text-4xl font-bold">{EXPERIENCE.title.en}</h3>
                 </div>
@@ -57,7 +61,8 @@ const Resume = () => {
                     {EXPERIENCE.items.map((item: IJobItem) => (
                       <li
                         key={item.id}
-                        className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1"
+                        className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 cursor-pointer hover:border hover:border-accent/50 transition-all duration-300"
+                        onClick={() => setSelectedJob(item)}
                       >
                         <span className="text-accent">{item.duration}</span>
                         <h3 className="text-lg max-w-[260px] min-h-[60px] text-center lg:text-left">
@@ -90,7 +95,7 @@ const Resume = () => {
               <div className="flex flex-col gap-[2rem] text-center xl:text-left">
                 <div className="flex items-center gap-6">
                   {EDUCATION.icon && (
-                    <Image src={EDUCATION.icon} alt={EDUCATION.title.en} width={30} height={30} />
+                    <Image src={EDUCATION.icon} alt={EDUCATION.title.en} width={30} height={30} style={{ height: 'auto' }} />
                   )}
                   <h3 className="text-4xl font-bold">{EDUCATION.title.en}</h3>
                 </div>
@@ -136,7 +141,7 @@ const Resume = () => {
                 <div className="flex flex-col gap-[2rem] text-center xl:text-left">
                   <div className="flex items-center gap-6">
                     {SKILLS.icon && (
-                      <Image src={SKILLS.icon} alt={SKILLS.title.en} width={30} height={30} />
+                      <Image src={SKILLS.icon} alt={SKILLS.title.en} width={30} height={30} style={{ height: 'auto' }} />
                     )}
                     <h3 className="text-4xl font-bold">{SKILLS.title.en}</h3>
                   </div>
@@ -179,18 +184,18 @@ const Resume = () => {
               <div className="flex flex-col gap-[2rem]">
                 <div className="flex items-center gap-6">
                   {ABOUT.icon && (
-                    <Image src={ABOUT.icon} alt={ABOUT.title.en} width={30} height={30} />
+                    <Image src={ABOUT.icon} alt={ABOUT.title.en} width={30} height={30} style={{ height: 'auto' }} />
                   )}
                   <h3 className="text-4xl font-bold">{ABOUT.title.en}</h3>
                 </div>
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                   {ABOUT.description.en}
                 </p>
-                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-full mx-auto xl:mx-0">
+                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 gap-x-10 max-w-full mx-auto xl:mx-0">
                   {ABOUT.info.map((item: IAboutField) => (
                     <li
                       key={item.id}
-                      className="flex items-center justify-center xl:justify-start gap-4"
+                      className="flex justify-center xl:justify-start gap-4"
                     >
                       <span className="text-white/60">{item.fieldName.en}</span>
                       {item.link ? (
@@ -214,6 +219,7 @@ const Resume = () => {
           </div>
         </Tabs>
       </div>
+      <ExperienceModal job={selectedJob} onClose={() => setSelectedJob(null)} />
     </motion.div>
   );
 };

@@ -68,7 +68,7 @@ export const ABOUT: IAboutData = {
     {
       id: 'my_languages',
       fieldName: { en: 'Languages', ru: 'Языки' },
-      fieldValue: 'English (B2/C1), Russian (native), Spanish (beginner)',
+      fieldValue: 'English (B2/C1), Russian (native), Armenian (beginner)',
     },
   ],
 };
