@@ -106,6 +106,7 @@ const Work: FC = () => {
                         sizes="(max-width: 1280px) 100vw, 50vw"
                         className="object-contain"
                         alt={item.title}
+                        loading="eager"
                       />
                     </div>
                   </div>
