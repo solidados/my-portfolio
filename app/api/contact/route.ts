@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+export const dynamic = 'force-dynamic';
 
 const rateLimitMap = new Map<string, number>();
 const RATE_LIMIT_MS = 60 * 1000;
@@ -15,6 +15,7 @@ interface ContactBody {
 }
 
 export async function POST(req: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const body: ContactBody = await req.json();
   const { name, email, message, website, captchaToken } = body;
   
