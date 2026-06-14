@@ -1,6 +1,7 @@
 "use client";
 
 import React, { type FC, useRef, useEffect, useState } from "react";
+import { useLocale } from '@/context/LocaleContext';
 import { motion } from "framer-motion";
 
 import { useRecaptcha } from '@/hooks/useRecaptcha';
@@ -32,6 +33,7 @@ const Contact: FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error' | 'ratelimit'>('idle')
   
+  const { locale } = useLocale();
   const { executeRecaptcha, consentStatus } = useRecaptcha();
   
   const formLoadTimeRef = useRef<number | null>(null)
@@ -249,7 +251,7 @@ const Contact: FC = () => {
                     </div>
                   )}
                   <div className="flex-1">
-                    <h3 className="text-white/60 select-none">{item.title.en}</h3>
+                    <h3 className="text-white/60 select-none">{item.title[locale]}</h3>
                     <p className="text-[1.1rem]">{item.value}</p>
                   </div>
                 </li>

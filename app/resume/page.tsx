@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import { useLocale } from '@/context/LocaleContext';
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -22,6 +23,8 @@ import { SKILLS, type ISkillItem } from "@/data/skills.data";
 
 const Resume = () => {
   const [ selectedJob, setSelectedJob ] = useState<IJobItem | null>(null);
+  const { locale } = useLocale();
+  
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -49,12 +52,12 @@ const Resume = () => {
               <div className="flex flex-col gap-[2rem] text-center xl:text-left">
                 <div className="flex items-center gap-6">
                   {EXPERIENCE.icon && (
-                    <Image src={EXPERIENCE.icon} alt={EXPERIENCE.title.en} width={30} height={30} style={{ height: 'auto' }} />
+                    <Image src={EXPERIENCE.icon} alt={EXPERIENCE.title[locale]} width={30} height={30} />
                   )}
-                  <h3 className="text-4xl font-bold">{EXPERIENCE.title.en}</h3>
+                  <h3 className="text-4xl font-bold">{EXPERIENCE.title[locale]}</h3>
                 </div>
                 <p className="max-w-full text-white/60 mx-auto xl:mx-0">
-                  {EXPERIENCE.description.en}
+                  {EXPERIENCE.description[locale]}
                 </p>
                 <ScrollArea className="h-[400px]" type="hover">
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[2rem] overflow-y-auto">
@@ -66,7 +69,7 @@ const Resume = () => {
                       >
                         <span className="text-accent">{item.duration}</span>
                         <h3 className="text-lg max-w-[260px] min-h-[60px] text-center lg:text-left">
-                          {item.position.en}
+                          {item.position[locale]}
                         </h3>
                         <div className="flex items-center gap-3">
                           <span className="w-[6px] h-[6px] rounded-full bg-accent" />
@@ -95,12 +98,12 @@ const Resume = () => {
               <div className="flex flex-col gap-[2rem] text-center xl:text-left">
                 <div className="flex items-center gap-6">
                   {EDUCATION.icon && (
-                    <Image src={EDUCATION.icon} alt={EDUCATION.title.en} width={30} height={30} style={{ height: 'auto' }} />
+                    <Image src={EDUCATION.icon} alt={EDUCATION.title[locale]} width={32} height={30} />
                   )}
-                  <h3 className="text-4xl font-bold">{EDUCATION.title.en}</h3>
+                  <h3 className="text-4xl font-bold">{EDUCATION.title[locale]}</h3>
                 </div>
                 <p className="max-w-full text-white/60 mx-auto xl:mx-0">
-                  {EDUCATION.description.en}
+                  {EDUCATION.description[locale]}
                 </p>
                 <ScrollArea className="h-[400px]" type="hover">
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[2rem]">
@@ -111,7 +114,7 @@ const Resume = () => {
                       >
                         <span className="text-accent">{item.duration}</span>
                         <h3 className="text-lg max-w-[260px] min-h-[60px] text-center lg:text-left">
-                          {item.degree.en}
+                          {item.degree[locale]}
                         </h3>
                         <div className="flex items-center gap-3">
                           <span className="w-[6px] h-[6px] rounded-full bg-accent" />
@@ -141,12 +144,12 @@ const Resume = () => {
                 <div className="flex flex-col gap-[2rem] text-center xl:text-left">
                   <div className="flex items-center gap-6">
                     {SKILLS.icon && (
-                      <Image src={SKILLS.icon} alt={SKILLS.title.en} width={30} height={30} style={{ height: 'auto' }} />
+                      <Image src={SKILLS.icon} alt={SKILLS.title[locale]} width={30} height={30} />
                     )}
-                    <h3 className="text-4xl font-bold">{SKILLS.title.en}</h3>
+                    <h3 className="text-4xl font-bold">{SKILLS.title[locale]}</h3>
                   </div>
                   <p className="max-w-full text-white/60 mx-auto xl:mx-0">
-                    {SKILLS.description.en}
+                    {SKILLS.description[locale]}
                   </p>
                 </div>
                 <ScrollArea className="h-[65dvh]" type="hover">
@@ -168,7 +171,7 @@ const Resume = () => {
                               </a>
                             </TooltipTrigger>
                             <TooltipContent>
-                              <p className="capitalize">{skill.name.en}</p>
+                              <p className="capitalize">{skill.name[locale]}</p>
                             </TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
@@ -184,12 +187,12 @@ const Resume = () => {
               <div className="flex flex-col gap-[2rem]">
                 <div className="flex items-center gap-6">
                   {ABOUT.icon && (
-                    <Image src={ABOUT.icon} alt={ABOUT.title.en} width={30} height={30} style={{ height: 'auto' }} />
+                    <Image src={ABOUT.icon} alt={ABOUT.title[locale]} width={30} height={30} />
                   )}
-                  <h3 className="text-4xl font-bold">{ABOUT.title.en}</h3>
+                  <h3 className="text-4xl font-bold">{ABOUT.title[locale]}</h3>
                 </div>
                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                  {ABOUT.description.en}
+                  {ABOUT.description[locale]}
                 </p>
                 <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 gap-x-10 max-w-full mx-auto xl:mx-0">
                   {ABOUT.info.map((item: IAboutField) => (
@@ -197,7 +200,7 @@ const Resume = () => {
                       key={item.id}
                       className="flex justify-center xl:justify-start gap-4"
                     >
-                      <span className="text-white/60">{item.fieldName.en}</span>
+                      <span className="text-white/60">{item.fieldName[locale]}</span>
                       {item.link ? (
                         <Link
                           className="text-xl hover:text-accent transition-all duration-300"

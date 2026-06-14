@@ -3,6 +3,7 @@
 import { FC, useState } from "react";
 
 import { usePathname } from "next/navigation";
+import { useLocale } from '@/context/LocaleContext';
 import { NAV_LINKS, type INavLinkItem } from '@/data/nav.data';
 
 import Link from "next/link";
@@ -16,6 +17,7 @@ import { CiMenuFries } from "react-icons/ci";
 const MobileNav: FC = () => {
   const [open, setOpen] = useState<boolean>(false);
   const pathname = usePathname();
+  const { locale } = useLocale();
 
   const handleClose = () => setOpen(false);
 
@@ -48,7 +50,7 @@ const MobileNav: FC = () => {
               onClick={handleClose}
               className={`${link.path === pathname && "text-accent border-b-2 border-accent"} capitalize text-xl hover:text-accent transition-all`}
             >
-              {link.name.en}
+              {link.name[locale]}
             </Link>
           ))}
           <Link href="/contact" onClick={handleClose}>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useLocale } from '@/context/LocaleContext';
 import {
   Dialog,
   DialogContent,
@@ -17,12 +18,13 @@ interface IExperienceModalProps {
 
 const ExperienceModal = ({job, onClose}: IExperienceModalProps) => {
   if (!job) return null;
+  const { locale } = useLocale();
   
   return (
     <Dialog open={!!job} onOpenChange={(open) => { if (!open) onClose() }}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>{job.position.en}</DialogTitle>
+          <DialogTitle>{job.position[locale]}</DialogTitle>
           <DialogDescription className="flex items-center gap-2 text-sm">
             <span className="text-accent">{job.duration}</span>
             <span className="text-white/20">·</span>

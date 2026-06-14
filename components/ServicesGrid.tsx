@@ -1,11 +1,14 @@
 "use client";
 
+import { useLocale } from '@/context/LocaleContext';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { BsArrowDownRight } from 'react-icons/bs';
 import { SERVICES, IServiceItem } from '@/data/services.data';
 
 const ServicesGrid = () => {
+  const { locale } = useLocale();
+  
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -32,9 +35,9 @@ const ServicesGrid = () => {
             </Link>
           </div>
           <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">
-            {service.title.en}
+            {service.title[locale]}
           </h2>
-          <p className="text-white/60 font-thin">{service.description.en}</p>
+          <p className="text-white/60 font-thin">{service.description[locale]}</p>
           <div className="border-b border-white/20 w-full" />
         </div>
       ))}

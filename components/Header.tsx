@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 
 import Nav from "./Nav";
 import MobileNav from "./MobileNav";
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Header: FC = () => {
   return (
@@ -19,13 +20,15 @@ const Header: FC = () => {
         {/* desktop nav & `Hire me` button */}
         <div className="hidden xl:flex items-center gap-8">
           <Nav />
+          <LanguageSwitcher />
           <Link href="/contact">
             <Button>Hire me</Button>
           </Link>
         </div>
 
         {/* mobile nav */}
-        <div className="xl:hidden">
+        <div className="xl:hidden flex items-center gap-4">
+          <LanguageSwitcher />
           <MobileNav />
         </div>
       </div>

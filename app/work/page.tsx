@@ -1,6 +1,7 @@
 "use client";
 
 import { FC, useState } from "react";
+import { useLocale } from '@/context/LocaleContext';
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
@@ -22,6 +23,7 @@ import "swiper/css";
 
 const Work: FC = () => {
   const [project, setProject] = useState<IProjectItem>(WORK.items[0]);
+  const { locale } = useLocale();
 
   const handleSlideChange = (swiper: SwiperType) => {
     const currentIndex = swiper.activeIndex;
@@ -46,9 +48,9 @@ const Work: FC = () => {
                 {project.num}
               </div>
               <h2 className="text-[2.625rem] leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category.en} project
+                {project.category[locale]} project
               </h2>
-              <p className="text-white/60">{project.description.en}</p>
+              <p className="text-white/60">{project.description[locale]}</p>
               <ul className="flex gap-4">
                 {project.stack.map((item: IStackItem, index: number) => (
                   <li key={item.name} className="text-xl text-accent">

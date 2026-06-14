@@ -2,9 +2,12 @@
 
 import { FC } from "react";
 import CountUp from "react-countup";
+import { useLocale } from '@/context/LocaleContext';
 import { STATS, type IStatItem } from "@/data/stats.data";
 
 const Stats: FC = () => {
+  const { locale } = useLocale();
+  
   return (
     <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
       <div className="container mx-auto">
@@ -28,8 +31,8 @@ const Stats: FC = () => {
                   <span className="text-4xl xl:text-6xl font-extrabold">{item.suffix}</span>
                 )}
               </div>
-              <p className={`${item.text.en.length < 15 ? "max-w-[100px]" : "max-w-[150px]"} leading-snug font-thin text-white/80`}>
-                {item.text.en}
+              <p className={`${item.text[locale].length < 15 ? "max-w-[100px]" : "max-w-[150px]"} leading-snug font-thin text-white/80`}>
+                {item.text[locale]}
               </p>
             </div>
           ))}

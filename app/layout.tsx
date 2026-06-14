@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 
 import { JetBrains_Mono } from "next/font/google";
 
+import { LocaleProvider } from '@/context/LocaleContext';
 import { ConsentProvider } from '@/lib/consent/ConsentProvider'
+
 import { CookieBanner } from '@/components/CookieBanner'
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
@@ -30,12 +32,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={jetbrainsMono.variable}>
-      <ConsentProvider recaptchaSiteKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
-        <Header />
-        <StairTransition />
-        <PageTransition>{children}</PageTransition>
-        <CookieBanner />
-      </ConsentProvider>
+      <LocaleProvider>
+        <ConsentProvider recaptchaSiteKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
+          <Header />
+          <StairTransition />
+          <PageTransition>{children}</PageTransition>
+          <CookieBanner />
+        </ConsentProvider>
+      </LocaleProvider>
       </body>
     </html>
   );
