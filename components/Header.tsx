@@ -1,12 +1,18 @@
+"use client";
+
 import { FC } from "react";
 import Link from "next/link";
+import { useLocale } from '@/context/LocaleContext';
 import { Button } from "./ui/button";
 
 import Nav from "./Nav";
 import MobileNav from "./MobileNav";
 import LanguageSwitcher from './LanguageSwitcher';
 
+import { UI } from "@/data/ui.data";
+
 const Header: FC = () => {
+  const { locale } = useLocale();
   return (
     <header className="py-8 xl:py-12 text-white">
       <div className="container mx-auto flex justify-between items-center">
@@ -22,7 +28,7 @@ const Header: FC = () => {
           <Nav />
           <LanguageSwitcher />
           <Link href="/contact">
-            <Button>Hire me</Button>
+            <Button>{UI.hire_me[locale]}</Button>
           </Link>
         </div>
 

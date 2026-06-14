@@ -39,7 +39,7 @@ export const EXPERIENCE: IExperienceData = {
       location: 'Dubai, UAE',
       position: {
         en: 'Full-stack Software Developer',
-        ru: 'Full-stack разработчик',
+        ru: 'Full-stack разработчик ПО',
       },
       description: {
         en: 'Developed scalable frontend applications for a MaaS platform – Darb (Riyadh Public Transport system). Led frontend architecture evolution with React, TypeScript, and Next.js (SSR/SSG). Integrated REST APIs via RTK Query, implemented performance optimizations, and applied XSS/CSRF security practices. Participated in Agile sprints and cross-functional collaboration.',
@@ -98,7 +98,7 @@ export const EXPERIENCE: IExperienceData = {
       location: 'Yerevan, Armenia',
       position: {
         en: 'Software Developer / Team Lead (R&D)',
-        ru: 'Разработчик / Тимлид (R&D)',
+        ru: 'Разработчик ПО / Тимлид (R&D)',
       },
       description: {
         en: 'Led cross-functional R&D projects in agritech and legal tech. Built an irrigation monitoring system for the Ministry of Agriculture of Armenia (Next.js + Node.js) and a legal assistance platform RightAid for the Czech Diplomatic Mission. Coordinated team efforts, participated in UX/UI design and architecture decisions.',

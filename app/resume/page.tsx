@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { useLocale } from '@/context/LocaleContext';
+import { UI } from '@/data/ui.data';
+
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -40,10 +42,10 @@ const Resume = () => {
           className="flex flex-col xl:flex-row gap-[60px] mb-8"
         >
           <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-            <TabsTrigger value="experience">Experience</TabsTrigger>
-            <TabsTrigger value="education">Education</TabsTrigger>
-            <TabsTrigger value="skills">Skills</TabsTrigger>
-            <TabsTrigger value="about">About me</TabsTrigger>
+            <TabsTrigger value="experience">{UI.tab_experience[locale]}</TabsTrigger>
+            <TabsTrigger value="education">{UI.tab_education[locale]}</TabsTrigger>
+            <TabsTrigger value="skills">{UI.tab_skills[locale]}</TabsTrigger>
+            <TabsTrigger value="about">{UI.tab_about[locale]}</TabsTrigger>
           </TabsList>
 
           {/* Experience */}

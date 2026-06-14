@@ -25,10 +25,10 @@ export const STATS: IStatItem[] = [
   },
   {
     id: 'technologies_mastered',
-    num: 23,
+    num: 45,
     prefix: '',
     suffix: '+',
-    text: { en: 'Technologies mastered', ru: 'Изученных технологий' },
+    text: { en: 'Technologies mastered', ru: 'Используемых технологий' },
   },
   {
     id: 'code_commits',

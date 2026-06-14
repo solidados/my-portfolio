@@ -5,6 +5,7 @@ import { FC, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useLocale } from '@/context/LocaleContext';
 import { NAV_LINKS, type INavLinkItem } from '@/data/nav.data';
+import { UI } from "@/data/ui.data";
 
 import Link from "next/link";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
@@ -54,7 +55,7 @@ const MobileNav: FC = () => {
             </Link>
           ))}
           <Link href="/contact" onClick={handleClose}>
-            <Button variant="outline">Hire me</Button>
+            <Button variant="outline">{UI.hire_me[locale]}</Button>
           </Link>
         </nav>
       </SheetContent>

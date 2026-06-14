@@ -2,9 +2,10 @@
 
 import React, { type FC, useRef, useEffect, useState } from "react";
 import { useLocale } from '@/context/LocaleContext';
-import { motion } from "framer-motion";
-
 import { useRecaptcha } from '@/hooks/useRecaptcha';
+import { UI } from '@/data/ui.data';
+
+import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -54,7 +55,7 @@ const Contact: FC = () => {
     if (honeypot.trim() !== '') {
       setIsSubmitting(false)
       setSubmitStatus('error')
-      console.warn('⚠️ Form validation failed: honeypot')
+      console.warn('⚠️ Form validation failed')
       return
     }
     
@@ -100,29 +101,29 @@ const Contact: FC = () => {
     if (consentStatus === 'accepted') {
       return (
         <>
-          This site is protected by reCAPTCHA and the Google{' '}
+          {UI.captcha_accepted[locale]}{' '}
           <a
             href="https://policies.google.com/privacy?hl=en"
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent hover:underline"
           >
-            Privacy Policy
+            { UI.captcha_accepted_pp[locale] }
           </a>{' '}
-          and{' '}
+          {UI.captcha_accepted_suffix[locale]}{' '}
           <a
             href="https://policies.google.com/terms?hl=en"
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent hover:underline"
           >
-            Terms of Service
+            { UI.captcha_accepted_tos[locale]}
           </a>{' '}
-          apply.
+          {UI.captcha_accepted_postfix[locale]}{' '}{locale === 'ru' && 'Google'}
         </>
       )
     }
-    return 'Spam protection is active with limited tracking due to your cookie preferences.'
+    return `${UI.captcha_rejected[locale]}`
   }
   
   return (
@@ -134,36 +135,34 @@ const Contact: FC = () => {
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[2rem]">
           <div className="xl:w-[54%] order-2 xl:order-none">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-              <h3 className="text-4xl text-accent select-none">Let&apos;s work together</h3>
-              <p className="text-white/60 select-none">
-                Have a project in mind or interested to hire me? – Fill in the form and I&apos;ll get back to you as soon as possible.
-              </p>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-10 bg-[#27272c] rounded-xl">
+              <h3 className="text-4xl text-accent select-none">{UI.form_title[locale]}</h3>
+              <p className="text-white/60 select-none">{UI.form_subtitle[locale]}</p>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                   type="text"
-                  placeholder="First name"
+                  placeholder={UI.placeholder_firstname[locale]}
                   value={form.firstname}
                   onChange={(e) => updateField('firstname', e.target.value)}
                   required
                 />
                 <Input
                   type="text"
-                  placeholder="Last name"
+                  placeholder={UI.placeholder_lastname[locale]}
                   value={form.lastname}
                   onChange={(e) => updateField('lastname', e.target.value)}
                 />
                 <Input
                   type="email"
-                  placeholder="Email"
+                  placeholder={UI.placeholder_email[locale]}
                   value={form.email}
                   onChange={(e) => updateField('email', e.target.value)}
                   required
                 />
                 <Input
                   type="tel"
-                  placeholder="Phone number"
+                  placeholder={UI.placeholder_phone[locale]}
                   value={form.phone}
                   onChange={(e) => updateField('phone', e.target.value)}
                 />
@@ -171,22 +170,22 @@ const Contact: FC = () => {
               
               <Select value={form.service} onValueChange={(v) => updateField('service', v)}>
                 <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select service..." />
+                  <SelectValue placeholder={UI.placeholder_service[locale]} />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>Service select</SelectLabel>
-                    <SelectItem value="frontend">Frontend Development</SelectItem>
-                    <SelectItem value="fullstack">Full-Stack Development</SelectItem>
-                    <SelectItem value="performance">Performance & Architecture</SelectItem>
-                    <SelectItem value="backend">Backend Development</SelectItem>
+                    <SelectLabel>{UI.service_label[locale]}:</SelectLabel>
+                    <SelectItem value="frontend">{UI.service_frontend[locale]}</SelectItem>
+                    <SelectItem value="fullstack">{UI.service_fullstack[locale]}</SelectItem>
+                    <SelectItem value="performance">{UI.service_performance[locale]}</SelectItem>
+                    <SelectItem value="backend">{UI.service_backend[locale]}</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
               
               <Textarea
                 className="h-[120px] w-full"
-                placeholder="Your message here..."
+                placeholder={UI.placeholder_message[locale]}
                 value={form.message}
                 onChange={(e) => updateField('message', e.target.value)}
                 required
@@ -207,11 +206,11 @@ const Contact: FC = () => {
               <div className="flex flex-col gap-2">
                 <Button
                   size="md"
-                  className="md:max-w-40"
+                  className="md:max-w-40 mb-4"
                   type="submit"
                   disabled={consentStatus !== 'accepted' || isSubmitting}
                 >
-                  {isSubmitting ? 'Sending...' : 'Send message'}
+                  {isSubmitting ? UI.btn_sending[locale] : UI.btn_send[locale]}
                 </Button>
                 <p className="text-xs text-white/40" suppressHydrationWarning>
                   {getNoticeText()}

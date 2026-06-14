@@ -2,6 +2,8 @@
 
 import { FC, useState } from "react";
 import { useLocale } from '@/context/LocaleContext';
+import { UI } from '@/data/ui.data';
+
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
@@ -48,7 +50,7 @@ const Work: FC = () => {
                 {project.num}
               </div>
               <h2 className="text-[2.625rem] leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category[locale]} project
+                {project.category[locale]} {UI.project_suffix[locale]}
               </h2>
               <p className="text-white/60">{project.description[locale]}</p>
               <ul className="flex gap-4">
@@ -68,7 +70,7 @@ const Work: FC = () => {
                         <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Live Project</p>
+                        <p>{ UI.live_project[locale] }</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -82,7 +84,7 @@ const Work: FC = () => {
                           <BsGithub className="text-white text-3xl group-hover:text-accent" />
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>GitHub repository</p>
+                          <p>{UI.github_repo[locale]}</p>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>

@@ -1,27 +1,37 @@
-import { FC } from "react";
+"use client";
 
-import { Button } from "@/components/ui/button";
+import { FC } from "react";
+import { useLocale } from '@/context/LocaleContext';
+
+import { UI } from "@/data/ui.data";
+
 import { FiDownload } from "react-icons/fi";
+import { Button } from "@/components/ui/button";
 import Socials from "@/components/Socials";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 
 const Home: FC = () => {
+  const { locale } = useLocale();
+  
   return (
     <section className="h-full">
       <div className="container mx-auto h-full">
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           <div className="text-center xl:text-left order-2 xl:order-none">
-            <span className="text-xl text-white/80">Software Developer</span>
-            <h1 className="h1 mb-6">
-              Hello, I&#39;m <br />{" "}
-              <span className="text-accent">Pavel Konyakhin</span>
+            <span className="text-xl text-white/80">{UI.role[locale]}</span>
+            <h1 className="h1 mb-6 whitespace-pre-line">
+              <span className="block">{UI.greeting[locale]}</span>
+              
+              <span className="block text-accent">
+                {UI.name[locale].split(' ').join('\n')}
+              </span>
             </h1>
-            {/* TODO: Server – Here should come `About` section*/}
+
             <p className="max-w-[500px] mb-9 text-white/80">
-              I excel at crafting elegant digital experiences and I am
-              proficient in various programming languages and technologies.
+              {UI.about_short[locale]}
             </p>
+            
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <a href="/api/cv" download="cv-pavel-konyakhin.pdf">
                 <Button
@@ -29,7 +39,7 @@ const Home: FC = () => {
                   size="lg"
                   className="uppercase flex items-center gap-2"
                 >
-                  <span>Download CV</span>
+                  <span>{UI.download_cv[locale]}</span>
                   <FiDownload className="text-xl" />
                 </Button>
               </a>
